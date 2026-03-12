@@ -116,3 +116,4 @@ Projeto colaborativo desenvolvido em Python 3 / Javascript para uso interno do C
   - Professor (chave estrangeira para usuários, função professor)
   - Turma (chave estrangeira para turma)
   - Disciplina (chave estrangeira para disciplina)
+"# lsadm" 
