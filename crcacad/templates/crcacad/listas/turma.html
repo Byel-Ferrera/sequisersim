@@ -1,0 +1,17 @@
+{% extends 'crcacad/base.html' %}
+
+{% block content %}
+<h1>Lista de Turmas</h1>
+<a href="{% url 'crcacad:criar_turma' %}" class="btn btn-success mb-3">Criar Turma</a>
+<ul>
+    {%for turma in turmas%}
+        <li>
+            {{ turma.numero_da_turma }} - {{ turma.curso }}
+        </li>
+        <td>
+            <a href="{% url 'crcacad:editar_turma' turma.numero_da_turma %}" class="btn btn-primary btn-sm">Editar</a>
+            <a href="{% url 'crcacad:excluir_turma' turma.numero_da_turma %}" class="btn btn-danger btn-sm">Excluir</a>
+        </td>
+    {%endfor%}
+</ul>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'crcacad/base.html' %}
+
+{% block content %}
+<h1>Lista de Disciplinas</h1>
+<a href="{% url 'crcacad:criar_disciplina' %}" class="btn btn-success mb-3">Criar Disciplina</a>
+<ul>
+    {% for disciplina in disciplinas %}
+        <li>
+            {{ disciplina.nome }} - {{ disciplina.carga_horaria }} horas
+        </li>
+        <td>
+            <a href="{% url 'crcacad:editar_disciplina' disciplina.nome %}" class="btn btn-primary btn-sm">Editar</a>
+            <a href="{% url 'crcacad:excluir_disciplina' disciplina.nome %}" class="btn btn-danger btn-sm">Excluir</a>
+        </td>
+    {% endfor %}
+</ul>
+{% endblock %}

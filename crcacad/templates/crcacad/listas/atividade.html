@@ -1,0 +1,17 @@
+{% extends 'crcacad/base.html' %}
+
+{% block content %}
+<h1>Lista de Atividades</h1>
+<a href="{% url 'crcacad:criar_atividade' %}" class="btn btn-success mb-3">Criar Atividade</a>
+<ul>
+    {% for atividade in atividades %}
+        <li>
+            {{ atividade.atividades }} - {{ atividade.descricao }}
+        </li>
+        <td>
+            <a href="{% url 'crcacad:editar_atividade' atividade.atividades %}" class="btn btn-primary btn-sm">Editar</a>
+            <a href="{% url 'crcacad:excluir_atividade' atividade.atividades %}" class="btn btn-danger btn-sm">Excluir</a>
+        </td>
+    {% endfor %}
+</ul>
+{% endblock %}

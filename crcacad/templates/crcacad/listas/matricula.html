@@ -1,0 +1,17 @@
+{% extends 'crcacad/base.html' %}
+
+{% block content %}
+<h1>Lista de Matrículas</h1>
+<a href="{% url 'crcacad:criar_matricula' %}" class="btn btn-success mb-3">Nova Matrícula</a>
+<ul>
+    {% for matricula in matriculas %}
+        <li>
+            {{ matricula.aluno.nome }} - {{ matricula.turma.curso.nome }} - {{ matricula.turma.numero_da_turma }} - {{ matricula.data_da_matricula|date:"d/m/Y" }} 
+        </li>
+        <td>
+            <a href="{% url 'crcacad:editar_matricula' matricula.pk %}" class="btn btn-primary btn-sm">Editar</a>
+            <a href="{% url 'crcacad:excluir_matricula' matricula.pk %}" class="btn btn-danger btn-sm">Excluir</a>
+        </td>
+    {% endfor %}
+</ul>
+{% endblock %}

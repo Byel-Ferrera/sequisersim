@@ -1,0 +1,17 @@
+{% extends 'crcacad/base.html' %}
+
+{% block content %}
+<h1>Lista de professores</h1>
+<a href="{% url 'crcacad:criar_professor' %}" class="btn btn-success mb-3">Criar Professor</a>
+<ul>
+    {% for professor in professores %}
+        <li>
+            {{ professor.nome }} - {{ professor.email }} - {{ professor.formacao }} - {{ professor.ativo }}
+        </li>
+        <td>
+            <a href="{% url 'crcacad:editar_professor' professor.cpf %}" class="btn btn-primary btn-sm">Editar</a>
+            <a href="{% url 'crcacad:excluir_professor' professor.cpf %}" class="btn btn-danger btn-sm">Excluir</a>
+        </td>
+    {% endfor %}
+</ul>
+{% endblock %}

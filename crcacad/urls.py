@@ -1,0 +1,35 @@
+from django.urls import path
+from .views import *
+app_name = 'crcacad'
+
+urlpatterns = [
+    path('',IndexView.as_view(), name='inicio'),
+    path('alunos/', listar_alunos, name='listar_alunos'),
+    path('alunos/criar/', criar_alunos, name='criar_alunos'),
+    path('alunos/<int:id>/editar/', editar_aluno, name='editar_aluno'),
+    path('alunos/<int:id>/excluir/', excluir_aluno, name='excluir_aluno'),
+    path('cursos/', listar_curso, name='listar_curso'),
+    path('cursos/criar/', criar_cursos, name='criar_cursos'),
+    path('cursos/<str:nome>/editar/', editar_curso, name='editar_curso'),
+    path('cursos/<str:nome>/excluir/', excluir_curso, name='excluir_curso'),
+    path('turmas/', listar_turma, name='listar_turma'),
+    path('turmas/criar/', criar_turma, name='criar_turma'),
+    path('turmas/<int:numero_da_turma>/editar/', editar_turma, name='editar_turma'),
+    path('turmas/<int:numero_da_turma>/excluir/', excluir_turma, name='excluir_turma'),
+    path('professores/criar/', criar_professor, name='criar_professor'),
+    path('professores/', listar_professor, name='listar_professor'),
+    path('professores/<str:cpf>/editar/', editar_professor, name='editar_professor'),
+    path('professores/<str:cpf>/excluir/', excluir_professor, name='excluir_professor'),
+    path('disciplinas/criar/', criar_disciplina, name='criar_disciplina'),
+    path('disciplinas/', listar_disciplina, name='listar_disciplina'),
+    path('disciplinas/<str:nome>/editar/', editar_disciplina, name='editar_disciplina'),
+    path('disciplinas/<str:nome>/excluir/', excluir_disciplina, name='excluir_disciplina'), 
+    path('atividades/criar/', criar_atividade, name='criar_atividade'),
+    path('atividades/', listar_atividade, name='listar_atividade'),
+    path('atividades/<str:atividades>/editar/', editar_atividade, name='editar_atividade'),
+    path('atividades/<str:atividades>/excluir/', excluir_atividade, name='excluir_atividade'),
+    path('matriculas/criar/', criar_matricula, name='criar_matricula'),
+    path('matriculas/', listar_matricula, name='listar_matricula'),
+    path('matriculas/<int:aluno_nome>/editar/', editar_matricula, name='editar_matricula'),
+    path('matriculas/<int:aluno_nome>/excluir/', excluir_matricula, name='excluir_matricula'),
+]

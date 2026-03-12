@@ -1,0 +1,17 @@
+{% extends 'crcacad/base.html' %}
+
+{% block content %}
+<h1>Lista de Alunos</h1>
+<a href="{% url 'crcacad:criar_alunos' %}" class="btn btn-success mb-3">Criar Aluno</a>
+<ul>
+    {%for aluno in alunos%}
+        <li>
+            {{ aluno.nome }} - {{ aluno.email }} - {{ aluno.data_de_nascimento }}
+        </li>
+        <td>
+            <a href="{% url 'crcacad:editar_aluno' aluno.CPF %}" class="btn btn-primary btn-sm">Editar</a>
+            <a href="{% url 'crcacad:excluir_aluno' aluno.CPF %}" class="btn btn-danger btn-sm">Excluir</a>
+        </td>
+    {%endfor%}
+</ul>
+{% endblock %}
