@@ -1,0 +1,1 @@
+web: gunicorn mod_acad.wsgi --workers 2
